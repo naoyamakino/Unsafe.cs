@@ -1,0 +1,28 @@
+/*
+ * CMPT383 Assignment 03
+ * Naoya Makino
+ * http://www.cs.sfu.ca/CC/383/ted/383-10-3/OutOfRange.html
+ * October 03, 2010
+ */
+
+Description
+
+Write a short C♯ program that uses pointers to violate C♯ array-bounds checking and crash your program. The crash will typically take the form of a C♯ exception, although if you're really lucky your program will just crash before it can raise an exception. There is no guaranteed value that will always crash your program. You will have to experiment a bit to see how badly you have to violate the array bounds to cause your program to crash.
+
+The details
+
+Your program should:
+
+Allocate a small array of integers.
+In an unsafe routine or code sequence use a fixed statement to assign a pointer to the first element of that array.
+Assign to an element outside the actual array. For example, if your array had only three elements, use the pointer to assign to the nonexistent fourth element.
+Define the index of the element you will access as a const variable. You will need to experiment with values of this constant, trying different ones until you get one large enough to consistently crash your program.
+Start with the routine Test2. But this routine includes more than you need, so be sure to delete the parts that don't relate to this assignment. The body of the solution to this assignment can be written in five lines, not counting curly braces.
+
+I described the fixed and unsafe keywords in class and the examples linked above should give you enough framework to get you started with them. I did not describe the two pointer operators you will need: getting the address of the first element of an array and indexing through a pointer ([ ]). Using them is simple enough:
+
+To get the address of the first element of an array, simply refer to the name of the array: int* p = myIntArray. This will have to be done within a fixed statement.
+Once you have a pointer to an array, you can index it just like the original array. For example, given the pointer p defined above, you access the second element of array myIntArray by writing p[1].
+The essence of this assignment is demonstrating how unsafe access using pointers allows you to bypass dynamic checks that C♯ does on regular (safe) array indexing.
+
+
